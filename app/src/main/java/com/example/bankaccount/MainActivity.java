@@ -12,9 +12,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       editText=findViewById(R.id.editTextTextPersonName);
-       BankAccount bankAccount=new BankAccount("100",210,2.58);
-       editText.setText( ""+bankAccount.gettotalAmountOfMoney());
+        editText = findViewById(R.id.editTextTextPersonName);
+        BankAccount bankAccount = new BankAccount("100", 210, 2.58);
+        editText.setText("" + bankAccount.gettotalAmountOfMoney());
     }
 
 }

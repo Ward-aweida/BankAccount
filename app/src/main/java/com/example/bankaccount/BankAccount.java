@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class BankAccount {
     // create attributs
-    private int size=0;
+    private int size = 0;
     private String accountNumber;
     private double cheekingBalance;
     private double SavingBalance;
-    private BankAccount[]accounts;
+    private BankAccount[] accounts;
     private static int account_count;
     // declare the variable as a static int
     private static double numberOfAccount;
@@ -47,7 +47,6 @@ public class BankAccount {
     }
 
 
-
     public static void setTotalAmountOfMoney(int totalAmountOfMoney) {
         BankAccount.totalAmountOfMoney = totalAmountOfMoney;
     }
@@ -57,35 +56,34 @@ public class BankAccount {
 
     }
 
-    public void checkDepostMony(double money ) {
-       setCheekingBalance(getCheekingBalance()+money);
-      setTotalAmountOfMoney((int) (gettotalAmountOfMoney()+money));
-    }
-    public void SavdDepositMony(double money){
-       setSavingBalance(getSavingBalance()+ money);
-       setTotalAmountOfMoney((int) (gettotalAmountOfMoney()+money));
+    public void checkDepostMony(double money) {
+        setCheekingBalance(getCheekingBalance() + money);
+        setTotalAmountOfMoney((int) (gettotalAmountOfMoney() + money));
     }
 
-public  void   CheckwithdrawMoney(double mony){
-        if (gettotalAmountOfMoney()<mony&& getCheekingBalance()<mony){
-        }
-        else{
-            setCheekingBalance(getCheekingBalance()-mony);
-            setTotalAmountOfMoney((int) (gettotalAmountOfMoney()-mony));
-        }
-}
+    public void SavdDepositMony(double money) {
+        setSavingBalance(getSavingBalance() + money);
+        setTotalAmountOfMoney((int) (gettotalAmountOfMoney() + money));
+    }
 
-
-    public void SavWithDaw(double money){
-       if(gettotalAmountOfMoney() < money && getSavingBalance() < money){
-       }
-       else{
-           setSavingBalance(getSavingBalance()- money);
-            setTotalAmountOfMoney((int) (gettotalAmountOfMoney()- money));
+    public void CheckwithdrawMoney(double mony) {
+        if (gettotalAmountOfMoney() < mony && getCheekingBalance() < mony) {
+        } else {
+            setCheekingBalance(getCheekingBalance() - mony);
+            setTotalAmountOfMoney((int) (gettotalAmountOfMoney() - mony));
         }
     }
 
-    public void seeTotal(){
+
+    public void SavWithDaw(double money) {
+        if (gettotalAmountOfMoney() < money && getSavingBalance() < money) {
+        } else {
+            setSavingBalance(getSavingBalance() - money);
+            setTotalAmountOfMoney((int) (gettotalAmountOfMoney() - money));
+        }
+    }
+
+    public void seeTotal() {
         gettotalAmountOfMoney();
 
     }
