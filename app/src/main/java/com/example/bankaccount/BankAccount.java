@@ -44,7 +44,7 @@ public class BankAccount {
         SavingBalance = savingBalance;
     }
 
-    public static double getTotalAmountOfMoney() {
+    public static int getTotalAmountOfMoney() {
         return totalAmountOfMoney;
     }
 
