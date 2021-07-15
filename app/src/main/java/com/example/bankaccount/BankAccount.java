@@ -4,11 +4,12 @@ import java.util.Random;
 
 public class BankAccount {
     // create attributs
-    private double balance;
+    private int size=0;
     private String accountNumber;
     private double cheekingBalance;
     private double SavingBalance;
-
+    private BankAccount[]accounts;
+    private static int account_count;
     // declare the variable as a static int
     private static double numberOfAccount;
     private static int totalAmountOfMoney;
@@ -20,11 +21,12 @@ public class BankAccount {
     }
 
     // create a constructor
-    public BankAccount(String accountNumber, double cheekingBalance,double balance, double savingBalance) {
+    public BankAccount(String accountNumber, double cheekingBalance, double savingBalance) {
         this.accountNumber = accountNumber;
-        this.balance=balance;
         this.cheekingBalance = cheekingBalance;
         this.SavingBalance = savingBalance;
+        accounts = new BankAccount[size];
+        account_count++;
         accountNumberRandom();
     }
 
@@ -44,24 +46,47 @@ public class BankAccount {
         SavingBalance = savingBalance;
     }
 
-    public static int getTotalAmountOfMoney() {
+
+
+    public static void setTotalAmountOfMoney(int totalAmountOfMoney) {
+        BankAccount.totalAmountOfMoney = totalAmountOfMoney;
+    }
+
+    public static int gettotalAmountOfMoney() {
         return totalAmountOfMoney;
-    }
-
-    public double DepostMony(double totalAmountOfMoney ) {
-        double newBalance= balance-totalAmountOfMoney;
-        balance=newBalance;
-        return balance;
 
     }
 
-    public double withdrawMoney(double totalAmountOfMoney) {
-       double newBalnce = balance-totalAmountOfMoney;
-       balance=newBalnce;
-       return balance;
+    public void checkDepostMony(double money ) {
+       setCheekingBalance(getCheekingBalance()+money);
+      setTotalAmountOfMoney((int) (gettotalAmountOfMoney()+money));
     }
-    public void seeTotal(double totalAmountOfMoney){
-        getTotalAmountOfMoney();
+    public void SavdDepositMony(double money){
+       setSavingBalance(getSavingBalance()+ money);
+       setTotalAmountOfMoney((int) (gettotalAmountOfMoney()+money));
+    }
+
+public  void   CheckwithdrawMoney(double mony){
+        if (gettotalAmountOfMoney()<mony&& getCheekingBalance()<mony){
+        }
+        else{
+            setCheekingBalance(getCheekingBalance()-mony);
+            setTotalAmountOfMoney((int) (gettotalAmountOfMoney()-mony));
+        }
+}
+
+
+    public void SavWithDaw(double money){
+       if(gettotalAmountOfMoney() < money && getSavingBalance() < money){
+       }
+       else{
+           setSavingBalance(getSavingBalance()- money);
+            setTotalAmountOfMoney((int) (gettotalAmountOfMoney()- money));
+        }
+    }
+
+    public void seeTotal(){
+        gettotalAmountOfMoney();
 
     }
 
